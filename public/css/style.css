@@ -41,3 +41,25 @@ span {
 body {
   font-family: 'Bellefair', serif;
 }
+
+#circ {
+  -webkit-animation-duration: 4s;
+  -webkit-animation-delay: 0s;
+  /*-webkit-animation-iteration-count: infinite;*/
+}
+
+#cpleft, #cpright {
+  -webkit-animation-duration: 3s;
+  -webkit-animation-delay: 0s;
+}
+
+.toast{
+  position: fixed;
+  width: 450px;
+  height:150px;
+  left:100px;
+  top:initial;
+  bottom: 0px;
+}
+
+/**/

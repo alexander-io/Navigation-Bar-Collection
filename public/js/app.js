@@ -1,4 +1,11 @@
 (function(){
+  // let input_field = '<div class="input-field col s6"><input id="email_addr" type="text" class="validate"><label for="email_addr">E-mail Address</label></div>'
+
+  // setTimeout(function(){
+  //   Materialize.toast('<h5 style="color:white;">Newsletter Sign-up!</h5> '+input_field, 32000)
+  // }, 10000)
+
+
   // if mouseenter nav-bar, set dropdown to hidden
   let nav = document.getElementById('nav')
   nav.addEventListener('mouseenter', () => {
