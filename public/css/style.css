@@ -1,0 +1,36 @@
+h1,h2, h3, h4, h5, h6 {
+  color: black;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color : black;
+}
+nav {
+  color:black;
+  background-color: white;
+}
+
+.nav-item:hover {
+  background-color: #f4f4f4;
+}
+.nav-item {
+  text-align: center;
+}
+
+#nav-dropdown{
+  /*background-color: #cccccc;*/
+  /*visibility:hidden;*/
+}
+
+.nav-drop-item{
+  visibility: hidden
+  position: fixed;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+div.col.s6 {
+  padding-left:5%;
+  padding-right:5%;
+
+}
