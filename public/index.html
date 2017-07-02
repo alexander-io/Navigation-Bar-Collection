@@ -26,64 +26,147 @@
         text-align: center;
       }
 
+      #nav-dropdown{
+        /*background-color: #cccccc;*/
+        /*visibility:hidden;*/
+      }
+
+      .nav-drop-item{
+        visibility: hidden
+        position: fixed;
+        background-color: #cccccc;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
     <nav class="z-depth-5">
       <div class="container">
         <div class="row">
-          <div class="col s2 nav-item">
-            <a  href="#"> helosd</a>
+          <div class="col s2">
+            f10
           </div>
-          <div class="col s2 nav-item">
-            <a  href="#"> helosd</a>
+          <div id="nav-item-01" class="col s2 nav-item offset-s2">
+            <a  href="#"> Programs</a>
           </div>
-          <div class="col s2 nav-item">
-            <a  href="#"> helosd</a>
+          <div id="nav-item-02" class="col s2 nav-item">
+            <a  href="#"> Projects</a>
           </div>
-          <div class="col s2 nav-item">
-            <a  href="#"> helosd</a>
+          <div id="nav-item-03" class="col s2 nav-item">
+            <a  href="#"> About</a>
           </div>
-          <div class="col s2 nav-item">
-            <a  href="#"> helosd</a>
-          </div>
-          <div class="col s2 nav-item">
-            <a  href="#"> helosd</a>
+          <div id="nav-item-04" class="col s2 nav-item">
+            <a  href="#"> Contact</a>
           </div>
         </div>
       </div>
     </nav>
 
 
+
     <script type="text/javascript">
       let nav_items = document.getElementsByClassName('nav-item')
-      console.log(nav_items)
       for (let i = 0; i < nav_items.length;i++){
-        console.log(nav_items[i])
-        nav_items[i].addEventListener("mouseover", function(){
-          console.log('mouse went over a nav item')
-          console.log(this)
 
-          if (this.style.backgroundColor === 'pink'){
-            this.style.backgroundColor = 'purple'
-          } else {
-            this.style.backgroundColor = "pink"
+
+        console.log(nav_items[i].getBoundingClientRect())
+
+
+        let drop_down = document.createElement('div')
+        drop_down.style.position = 'fixed'
+        drop_down.id = 'nav-drop-item-'+i
+        drop_down.style.backgroundColor = '#eeeeee'
+        drop_down.style.height = '100px'
+        drop_down.style.width = 2*nav_items[i].getBoundingClientRect().width+'px'
+        drop_down.style.top = nav_items[i].getBoundingClientRect().bottom+'px'
+        drop_down.style.textAlign = 'left'
+
+        drop_down.style.left = (nav_items[i].getBoundingClientRect().left - nav_items[i].getBoundingClientRect().width)+'px'
+        drop_down.style.border = '1px solid white'
+        drop_down.style.visibility = 'hidden'
+        let i1 = document.createElement('div')
+        i1.className = 'col s6'
+        let text_node = document.createTextNode('lorem')
+        i1.appendChild(text_node)
+
+        let i2 = document.createElement('div')
+        // i2.class = 'col s6'
+        i2.className = 'col s6'
+         text_node = document.createTextNode('losdfsdrem')
+        i2.appendChild(text_node)
+        drop_down.appendChild(i1)
+        drop_down.appendChild(i2)
+
+        // document.body.appendChild(drop_down)
+
+        nav_items[i].appendChild(drop_down)
+        console.log(drop_down)
+
+        nav_items[i].addEventListener("mouseover", function(){
+          let rect = this.getBoundingClientRect()
+          // console.log(this.id.substring(this.id.indexOf('m-')+'m-'.length))
+          // console.log(document.getElementById('nav-drop-item-'+this.id.substring(this.id.indexOf('m-')+'m-'.length)))
+          console.log(rect)
+          // console.log('nav-drop-item-'+this.id.substring(this.id.indexOf('m-')+'m-'.length))
+          // console.log(document.getElementById('nav-drop-item-'+this.id.substring(this.id.indexOf('m-')+'m-'.length).replace('0', '')))
+          let drop_elem = document.getElementById('nav-drop-item-'+(parseInt(this.id.substring(this.id.indexOf('m-')+'m-'.length).replace('0', ''))-1))
+          console.log('nav-drop-item-'+(parseInt(this.id.substring(this.id.indexOf('m-')+'m-'.length).replace('0', ''))-1))
+
+          if (drop_elem.style.visibility === 'hidden') {
+            document.getElementById('nav-drop-item-'+(parseInt(this.id.substring(this.id.indexOf('m-')+'m-'.length).replace('0', ''))-1)).style.visibility = 'visible'
           }
         })
+
+        nav_items[i].addEventListener("mouseout", function(){
+          let drop_elem = document.getElementById('nav-drop-item-'+(parseInt(this.id.substring(this.id.indexOf('m-')+'m-'.length).replace('0', ''))-1))
+
+          drop_elem.style.visibility = 'hidden'
+        })
       }
-      // for (x in nav_items) {
-      //   console.log(nav_items[x])
-      //
-      // }
     </script>
 
 
     <div class="container">
       <div class="row">
-        <div class="col s12">
-          <h1>the spectacle before us was asdasdasdaskdjahsdasindeed sublime</h1>
+        <div class="col s12" style="padding:30%;padding-top:1%;padding-bottom:1%;text-align:center;">
+          <h1>the spectacle before us was indeed sublime</h1>
         </div>
       </div>
+      <div class="row" style="width:50%;">
+
+        <div class="col s6">
+          <h2>title</h2>
+          <br>
+          <div class="row">
+            <h4>sub-title</h4>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <hr>
+          <div class="row">
+
+            <h4>sub-title</h4>
+
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+        <div class="col s6">
+          <h2>title</h2>
+          <br>
+          <div class="row">
+            <h4>sub-title</h4>
+
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <hr>
+          <div class="row">
+            <h4>sub-title</h4>
+
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+      </div>
+
     </div>
+
   </body>
 </html>
